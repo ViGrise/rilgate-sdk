@@ -1,0 +1,26 @@
+[package]
+name = "rilgate-client"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+
+[features]
+reqwest = ["dep:reqwest"]
+
+[dependencies]
+sha2 = "0.10.9"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+url = "2"
+hex = "0.4.3"
+thiserror = "2"
+hashwx-core = { git = "https://github.com/ViGrise/rilgate", rev = "4f958e97f3c148383bd3d8596991eb290e7a829f" }
+reqwest = { version = "0.12", optional = true, default-features = false, features = ["blocking", "rustls-tls", "json"] }
+
+[dev-dependencies]
+rilgate-pow-hash = { git = "https://github.com/ViGrise/rilgate", rev = "4f958e97f3c148383bd3d8596991eb290e7a829f" }
+rilgate-pow-hashwx = { git = "https://github.com/ViGrise/rilgate", rev = "4f958e97f3c148383bd3d8596991eb290e7a829f" }
+
+[[example]]
+name = "solve"
+required-features = ["reqwest"]

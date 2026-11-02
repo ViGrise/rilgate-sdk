@@ -1,0 +1,5 @@
+[bindings.swift]
+module_name = "RilgateClient"
+
+[bindings.kotlin]
+package_name = "com.vigrise.rilgate.client"
