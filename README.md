@@ -3,6 +3,8 @@
 Client libraries for [Rilgate](https://github.com/ViGrise/rilgate), a reverse proxy gateway
 that uses proof-of-work challenges.
 
+![An application calls a protected API. @rilgate/browser shows the challenge in a frame, then the retried request shows the data.](docs/images/browser-sdk.gif)
+
 ## Packages
 
 | Package | Language | Directory | Use |
@@ -59,6 +61,20 @@ scripts/generate-bindings.sh
 
 To add a package, create `packages/<name>` with its own `package.json` that has the
 `build`, `typecheck` and `test` scripts. The root scripts run them in each package.
+
+`docs/images/browser-sdk.gif` shows `@rilgate/browser` in an example application. The
+recording script starts a Rilgate gateway that renders the real challenge page. The
+browser solves no proof. The script plays the page states on a fixed timeline and
+answers the retried API request. After a change to the SDK or to the challenge page,
+record the GIF again:
+
+```sh
+npm run build
+npx playwright install chromium
+RILGATE_BINARY=<path to the rilgate binary> node scripts/record-browser-preview.mjs
+```
+
+The script needs `ffmpeg` and `ffprobe`.
 
 ## License
 

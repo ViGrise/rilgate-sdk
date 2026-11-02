@@ -2,7 +2,9 @@
   "name": "rilgate-sdk",
   "private": true,
   "license": "Apache-2.0",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">=24"
   },
@@ -17,6 +19,7 @@
     "@biomejs/biome": "2.6.4",
     "@types/node": "24.19.2",
     "esbuild": "0.25.12",
+    "playwright": "1.64.1",
     "typescript": "5.9.3"
   }
 }
