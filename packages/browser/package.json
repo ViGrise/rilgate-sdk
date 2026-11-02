@@ -1,0 +1,29 @@
+{
+  "name": "@rilgate/browser",
+  "version": "0.1.0",
+  "description": "Browser SDK for Rilgate: detects proof-of-work challenges on any same-origin request, solves them once and retries the request.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./service-worker": {
+      "types": "./dist/service-worker/index.d.ts",
+      "default": "./dist/service-worker/index.js"
+    },
+    "./rilgate-browser.global.js": "./dist/rilgate-browser.global.js",
+    "./rilgate-service-worker.global.js": "./dist/rilgate-service-worker.global.js"
+  },
+  "files": ["dist"],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/build-globals.mjs",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.dom-free.json",
+    "test": "node --test 'test/**/*.test.ts'"
+  }
+}
