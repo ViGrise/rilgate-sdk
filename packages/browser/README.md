@@ -1,5 +1,7 @@
 # @rilgate/browser
 
+![An application calls a protected API. The SDK shows the challenge in a frame, then the retried request shows the data.](../../docs/images/browser-sdk.gif)
+
 The Rilgate browser SDK detects challenges on same-origin requests. It opens one solver for concurrent challenges. It shares verification between tabs. It retries fetch requests and eligible service worker requests after verification. It also detects failed resources and connections.
 
 ## Requirements
